@@ -4,8 +4,8 @@ class Graph():
     """A graph made up of nodes and edges"""
 
     def __init__(self, nodes, edges):
-        assert all([isinstance(node, Node) for node in nodes]), 'Nodes argument is not list of nodes'
-        assert all([isinstance(edge, Edge) for edge in edges]), 'Edges argument is not list of edges'
+        assert all([self.is_node(node) for node in nodes]), 'Nodes argument is not list of nodes'
+        assert all([self.is_edge(edge) for edge in edges]), 'Edges argument is not list of edges'
 
         for edge in edges:
             assert edge.node1 in nodes and edge.node2 in nodes, 'Nodes of edge is not in list of nodes'
@@ -16,12 +16,12 @@ class Graph():
         self.add_edges(self.edges)
     
     def add_node(self, node):
-        assert isinstance(node, Node), 'Not a node'
+        assert self.is_node(node), 'Not a node'
 
         self.nodes.append(node)
     
     def add_edge(self, edge):
-        assert isinstance(edge, Edge), 'Not an edge'
+        assert self.is_edge(edge), 'Not an edge'
         assert edge.node1 in self.nodes and edge.node2 in self.nodes, 'Nodes of edge is not in list of nodes'
 
         self.edges.append(edge)
@@ -30,10 +30,13 @@ class Graph():
     
     def add_edges(self, edges):
         for edge in edges:
-            assert edge.node1 in self.nodes and edge.node2 in self.nodes, 'Nodes of edge is not in list of nodes'
-
-            edge.node1.add_edge(edge)
-            edge.node2.add_edge(edge)
+            self.add_edge(edge)
+    
+    def is_node(self, node):
+        return isinstance(node, Node)
+    
+    def is_edge(self, edge):
+        return isinstance(edge, Edge)
     
     def __str__(self):
         string_lst = []
