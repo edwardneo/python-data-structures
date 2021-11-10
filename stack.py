@@ -1,7 +1,7 @@
 class Stack():
     """A stack (FIFO)"""
 
-    def __init__(self, lst=''):
+    def __init__(self, lst=[]):
         self.lst = lst
     
     def push(self, item):
