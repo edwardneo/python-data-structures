@@ -4,7 +4,7 @@ class Stack():
     def __init__(self, lst=[]):
         self.lst = lst
     
-    def push(self, item):
+    def append(self, item):
         self.lst.append(item)
     
     def pop(self):
