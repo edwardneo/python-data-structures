@@ -1,16 +1,13 @@
-class Stack():
+from deque import Deque
+
+class Stack(Deque):
     """A stack (FIFO)"""
 
-    def __init__(self, lst=[]):
-        self.lst = lst
+    def prepend(*args):
+        raise AttributeError("'Stack' object has no attribute 'prepend'")
     
-    def append(self, item):
-        self.lst.append(item)
-    
-    def pop(self):
-        if self.lst:
-            return self.lst.pop()
-        return None
+    def pop_left(*args):
+        raise AttributeError("'Stack' object has no attribute 'pop_left'")
     
     def __str__(self):
         string = ''

@@ -1,18 +1,13 @@
+from deque import Deque
+
 class Queue():
     """A queue (LIFO)"""
 
-    def __init__(self, lst=[]):
-        self.lst = lst
-    
-    def append(self, item):
-        self.lst.append(item)
-    
-    def pop_left(self):
-        if self.lst:
-            temp = self.lst[0]
-            self.lst = self.lst[1:]
-            return temp
-        return None
+    def prepend(*args):
+        raise AttributeError("'Queue' object has no attribute 'prepend'")
+
+    def pop(*args):
+        raise AttributeError("'Queue' object has no attribute 'pop'")
     
     def __str__(self):
         string = ''
